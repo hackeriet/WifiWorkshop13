@@ -1,4 +1,4 @@
-WifiWorkshop13
-==============
+HackerietWifi
+=============
 
-Packet captures, config files and presentation from the Wireless hacking workshop
+Sample configs and stuff for the Hackeriet wireless hacking workshop
