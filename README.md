@@ -39,8 +39,8 @@ Snooping on wireless networks
 
 1. Enable a monitoring interface on your wireless NIC
  
- ```
- airmon-ng start wlan1
+```
+airmon-ng start wlan1
 ```
 
 2. Check that your card support packet injection
